@@ -1,0 +1,68 @@
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/">Home</a>
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav>
+
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="firstname">Nombres</label>
+            <input type="text" formControlName="firstname" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" />
+            <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+              <div *ngIf="f.firstname.errors.required">Nombres son requeridos</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname">Apellidos</label>
+            <input type="text" formControlName="lastname" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" />
+            <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+              <div *ngIf="f.lastname.errors.required">Apellidos requeridos</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="identification">Documento de Identidad</label>
+            <input type="text" formControlName="identification" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.identification.errors }" />
+            <div *ngIf="submitted && f.identification.errors" class="invalid-feedback">
+              <div *ngIf="f.identification.errors.required">Identificación requerida</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="birthdate">Fecha de Nacimiento</label>
+            <input type="text" formControlName="birthdate" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.birthdate.errors }" />
+            <div *ngIf="submitted && f.birthdate.errors" class="invalid-feedback">
+              <div *ngIf="f.birthdate.errors.required">Fecha de nacimiento requerida</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Registrar</button>
+            <img *ngIf="loading" class="pl-3"
+              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a routerLink="/login" class="btn btn-link">Cancelar</a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- credits -->
+<div class="text-center">
+
+  <p> By Diego Contreras
+    <a href="http://dataff.co" target="_top">Dataff</a>
+  </p>
+</div>
